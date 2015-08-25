@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickStep Solutions</title>
+  
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <!-- Wrapper-->
+    <div id="wrapper">
+      <!-- Navigation -->
+      <%= cell('layout').(:left) %>
+      <!-- Page wraper -->
+      <div id="page-wrapper" class="gray-bg">
+        <!-- Page wrapper -->
+        <%= cell('layout').(:top) %>
+        <!-- Main view  -->
+        <%= yield %>
+        <!-- Footer -->
+        <%= cell('layout').(:footer) %>
+      </div>
+      <!-- End page wrapper-->
+    </div>
+    <!-- End wrapper-->
+    
+    <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<%= simple_form_for [:admin, @user] do |f| %>
+  <div class="col-sm-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-content">
+        <%= f.input :name %>
+        <%= f.input :phone %>
+        <%= f.input :email %>
+
+        <% if @user.new_record? %>
+          <%= f.input :role, collection: User::ROLES, include_blank: '请选择角色' %>
+          <%= f.input :password %>
+        <% end %>
+        <%= f.input :active %>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <button type="submit" class="btn btn-primary btn-block">保存修改</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

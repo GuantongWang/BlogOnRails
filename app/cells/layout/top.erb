@@ -1,0 +1,30 @@
+<div class="row border-bottom">
+  <nav class="navbar navbar-static-top white-bg" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#">
+        <i class="fa fa-bars"></i>
+      </a>
+      <!-- <form role="search" class="navbar-form-custom" method="post" action="/">
+        <div class="form-group">
+          <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search" />
+        </div>
+      </form> -->
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+      <% if current_user %>
+        <li>
+          <%= link_to "/users/edit" do %>
+            <i class="fa fa-user"></i> <%= current_user.name || current_user.email %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '登出', destroy_user_session_path, :method => :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to '登录', new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
