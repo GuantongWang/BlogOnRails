@@ -22,6 +22,11 @@
         </div>
         <div class="logo-element">QuickStep Solutions</div>
       </li>
+      <li class="<%= active_for_dir1('posts') %>">
+        <%= link_to admin_posts_path do %>
+            <i class="fa fa-user"></i> <span class="nav-label">文章管理</span>
+        <% end %>
+      </li>
       <li class="<%= active_for_dir1('users') %>">
         <%= link_to [:admin, :users] do %>
           <i class="fa fa-user"></i> <span class="nav-label">用户管理</span>

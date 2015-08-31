@@ -217,3 +217,6 @@ zh-CN:
         password: 密码
         password_confirmation: 重复密码
         active: 激活
+      post:
+        title: 标题
+        content: 内容

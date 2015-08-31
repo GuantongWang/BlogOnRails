@@ -16,6 +16,14 @@ class LayoutCell < ViewModel
     render
   end
 
+  def app_footer
+    render
+  end
+
+  def app_header
+    render
+  end
+
   def summary(project)
     
   end
