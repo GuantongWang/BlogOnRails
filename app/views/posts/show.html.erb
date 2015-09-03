@@ -27,37 +27,7 @@
             </div>
           </header>
           <div class="blogpost-content">
-            <div id="carousel-blog-post" class="carousel slide mb-20" data-ride="carousel">
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#carousel-blog-post" data-slide-to="0" class=""></li>
-                <li data-target="#carousel-blog-post" data-slide-to="1" class="active"></li>
-                <li data-target="#carousel-blog-post" data-slide-to="2"></li>
-              </ol>
-
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner" role="listbox">
-                <div class="item">
-                  <div class="overlay-container">
-                    <img src="images/blog-1.jpg" alt="">
-                    <a class="overlay-link popup-img" href="images/blog-1.jpg"><i class="fa fa-search-plus"></i></a>
-                  </div>
-                </div>
-                <div class="item active">
-                  <div class="overlay-container">
-                    <img src="images/blog-3.jpg" alt="">
-                    <a class="overlay-link popup-img" href="images/blog-3.jpg"><i class="fa fa-search-plus"></i></a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="overlay-container">
-                    <img src="images/blog-4.jpg" alt="">
-                    <a class="overlay-link popup-img" href="images/blog-4.jpg"><i class="fa fa-search-plus"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p><%= @post.content %></p>
+            <p><%= @post.content.html_safe %></p>
           </div>
           <footer class="clearfix">
             <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>

@@ -10,7 +10,7 @@
         <!-- blogpost start -->
             <article class="blogpost">
               <div class="overlay-container">
-                <img src="images/blog-2.jpg" alt="">
+                <%= post.get_feature_pic.html_safe%>
                 <a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
               </div>
               <header>
@@ -26,7 +26,7 @@
                 </div>
               </header>
               <div class="blogpost-content">
-                <p> <%= post.content %></p>
+                <p> <%= post.get_preview.html_safe %></p>
               </div>
               <footer class="clearfix">
                 <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>

@@ -1,9 +1,9 @@
 <%= simple_form_for [:admin, @post] do |f| %>
-  <div class="col-sm-6">
+  <div class="col-sm-12">
     <div class="ibox float-e-margins">
       <div class="ibox-content">
         <%= f.input :title %>
-        <%= f.input :content, :as => :kindeditor, :input_html => {:rows => 6} %>
+        <%= f.input :content, :as => :kindeditor %>
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
             <button type="submit" class="btn btn-primary btn-block">提交</button>
