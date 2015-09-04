@@ -220,3 +220,5 @@ zh-CN:
       post:
         title: 标题
         content: 内容
+        commenter: 名字
+        body: 评论
