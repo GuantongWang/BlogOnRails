@@ -24,6 +24,11 @@ class LayoutCell < ViewModel
     render
   end
 
+  def app_sidebar
+    @side = Post.where("is_recommend = ?", true).order(created_at: :desc).limit(5)
+    render
+  end
+
   def summary(project)
     
   end

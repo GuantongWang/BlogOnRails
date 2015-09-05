@@ -4,7 +4,7 @@
       <div class="ibox-content">
         <%= f.input :title %>
         <%= f.input :content, :as => :kindeditor %>
-        <%= f.input :tags %>
+        <%= f.association :tags, label_method: :tag, value_method: :id, class: 'select2', :input_html =>{ :multiple => 'multiple'} %>
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
             <button type="submit" class="btn btn-primary btn-block">提交</button>
@@ -13,4 +13,9 @@
       </div>
     </div>
   </div>
+<% end %>
+<% content_for :scripts do %>
+    <script type="text/javascript">
+        $("#post_tag_ids").select2({tag: true});
+    </script>
 <% end %>

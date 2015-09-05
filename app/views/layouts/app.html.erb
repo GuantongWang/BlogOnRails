@@ -10,6 +10,7 @@
     <%= javascript_include_tag 'app' %>
     
     <%= csrf_meta_tags %>
+    <%= yield :scripts %>
   </head>
   <body class="">
   <div class="page-wrapper">
@@ -19,7 +20,10 @@
     <%= yield %>
 
 
-
+    <%= cell('layout').(:app_sidebar) %>
+  </div>
+  </div>
+  </section>
     <!--footer-->
     <%= cell('layout').(:app_footer) %>
   </div>

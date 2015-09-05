@@ -18,3 +18,5 @@
 //= require slimscroll/jquery.slimscroll.min.js
 //= require kindeditor
 //= require_tree .
+//= require select2
+

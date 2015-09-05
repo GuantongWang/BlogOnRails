@@ -18,12 +18,11 @@
           <header>
             <div class="post-info">
 										<span class="post-date">
-											<i class="icon-calendar"></i>
-											<span class="day">12</span>
-											<span class="month">May 2015</span>
+											<i class="fa fa-calendar"></i>
+											<span class="day"><%= @post.created_at.strftime("%d %b %Y") %></span>
 										</span>
-              <span class="submitted"><i class="icon-user-1"></i> <%= @post.get_views %> <a href="#"></a></span>
-              <span class="comments"><i class="icon-chat"></i> <a href="#"><%= @post.get_comments%></a></span>
+              <span class="submitted"><i class="fa fa-eye"></i> <%= @post.get_views %></span>
+              <span class="comments"><i class="fa fa-comment"></i><%= @post.get_comments%></span>
             </div>
           </header>
           <div class="blogpost-content">
@@ -33,10 +32,9 @@
             <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
             <div class="link pull-right">
               <ul class="social-links circle small colored clearfix margin-clear text-right animated-effect-1">
-                <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a href="<%= post_like_path(@post) %>"><i id = "like" class="fa fa-heart"></i></a></li>
               </ul>
+              <%= @post.get_like %>
             </div>
           </footer>
         </article>
@@ -49,9 +47,9 @@
           <% @post.comments.each do |c| %>
           <!-- comment start -->
           <div class="comment clearfix">
-            <div class="comment-avatar">
-              <img class="img-circle" src="images/avatar.jpg" alt="avatar">
-            </div>
+            <!--<div class="comment-avatar">-->
+              <!--<img class="img-circle" src="images/avatar.jpg" alt="avatar">-->
+            <!--</div>-->
             <header>
               <h3><%= c.commenter %></h3>
               <div class="comment-meta"></div>
@@ -71,12 +69,12 @@
         <!-- ================ -->
         <%= simple_form_for([@post, @post.comments.build]) do |f| %>
         <div class="comments-form">
-          <h2 class="title">Add your comment</h2>
+          <h2 class="title">添加评论</h2>
             <div class="form-group has-feedback">
-              <%= f.text_field :commenter %>
+              <%= f.text_field :commenter, class: "form-control" %>
             </div>
             <div class="form-group has-feedback">
-              <%= f.text_area :body %>
+              <%= f.text_area :body, class: "form-control" %>
             </div>
           <button type="submit" class="btn btn-primary btn-block">提交</button>
           </form>
@@ -86,9 +84,23 @@
         <!-- comments form end -->
       </div>
       <!-- main end -->
-      <%= render 'sidebar' %>
+<% content_for :scripts do %>
+    <script type="text/javascript">
+      function faclick() {
+          $.ajax(
+                  {
+                      url: '<%= post_like_path(@post) %>',
+                      type: "post",
+                      error: function () {
+                          alert("出错:-(");
+                      },
+                      success: function () {
+                          $("#like").removeClass("fa-heart-o");
+                          $("#like").addClass("fa-heart");
+                      }
+                  }
+          );
+      }
+    </script>
+<% end %>
 
-
-    </div>
-  </div>
-</section>

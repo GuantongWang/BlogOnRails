@@ -14,7 +14,12 @@ class Post < ActiveRecord::Base
   end
 
   def get_preview
-    content.gsub(/<img.*?>/,"")
+    @str = content.gsub(/<\/?.*?>/,"")
+    if @str.length > 200
+      "#{@str[0,200]}......"
+    else
+      @str
+    end
   end
 
   def get_views
@@ -32,6 +37,15 @@ class Post < ActiveRecord::Base
       '0 comment'
     else
       "#{@comment} comments"
+    end
+  end
+
+  def get_like
+    @like = like
+    if @like == 0
+      '0 like'
+    else
+      "#{@like} likes"
     end
   end
 
