@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_and_belongs_to_many :tags
   has_many :comments
-    validates :title, presence: true,
-                      length: { minimum: 5 }
+    validates :title, presence: true
 
   def get_feature_pic
     @match = content.match(/<img.*?>/)
@@ -15,6 +15,24 @@ class Post < ActiveRecord::Base
 
   def get_preview
     content.gsub(/<img.*?>/,"")
+  end
+
+  def get_views
+    @view = view
+    if @view == 0
+      '0 view'
+    else
+      "#{@view} views"
+    end
+  end
+
+  def get_comments
+    @comment = comments.size
+    if @comment == 0
+      '0 comment'
+    else
+      "#{@comment} comments"
+    end
   end
 
 end

@@ -11,6 +11,17 @@ class Admin::PostsController < Admin::AdminController
     @post = Post.new
   end
 
+  def set_recommend
+    @recommend = Post.find(params[:post_id])
+    @recommend.update(is_recommend: true)
+    redirect_to admin_posts_path
+  end
+
+  def set_unrecommend
+    @recommend = Post.find(params[:post_id])
+    @recommend.update(is_recommend: false)
+    redirect_to admin_posts_path
+  end
   private
   def set_dirs
     @dir1 = 'posts'
@@ -35,4 +46,5 @@ class Admin::PostsController < Admin::AdminController
   def redirect_to_after_save
     [:admin, :posts]
   end
+
 end

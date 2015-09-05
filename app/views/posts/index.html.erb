@@ -21,8 +21,8 @@
 											<span class="day">08</span>
 											<span class="month">May 2015</span>
 										</span>
-                  <span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-                  <span class="comments"><i class="icon-chat"></i> <a href="#"><%= post.comments.size%> comments</a></span>
+                  <span class="submitted"><i class="icon-user-1"></i> <%= post.get_views %></span>
+                  <span class="comments"><i class="icon-chat"></i> <a href="#"><%= post.get_comments%></a></span>
                 </div>
               </header>
               <div class="blogpost-content">

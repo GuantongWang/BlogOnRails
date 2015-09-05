@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
     
-  root to: 'home#index'
+  root to: 'posts#index'
 
   resources :posts, only:[:index, :show] do
     resources :comments
@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :posts
+    resources :posts do
+      post 'recommend' => 'posts#set_recommend'
+      post 'unrecommend' => 'posts#set_unrecommend'
+    end
   end
+
 end

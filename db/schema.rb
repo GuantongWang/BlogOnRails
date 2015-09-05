@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830104125) do
+ActiveRecord::Schema.define(version: 20150904175804) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -28,11 +28,25 @@ ActiveRecord::Schema.define(version: 20150830104125) do
     t.text     "content"
     t.integer  "user_id"
     t.boolean  "is_draft"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "is_recommend", default: false, null: false
+    t.integer  "like",         default: 0,     null: false
+    t.integer  "view",         default: 0,     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "posts_tags", id: false, force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

@@ -37,8 +37,13 @@
                     <td><%= post.created_at %></td>
                     <td><%= post.updated_at %></td>
                     <td>
+                      <%if post.is_recommend %>
+                          <%= link_to '取消推荐', admin_post_unrecommend_path(post), method: 'post', class: 'btn btn-sm btn-success'%>
+                      <%else%>
+                          <%= link_to '推荐', admin_post_recommend_path(post), method: 'post', class: 'btn btn-sm btn-success'%>
+                      <%end%>
                       <%= link_to '编辑', [:edit, :admin, post], class: 'btn btn-sm btn-warning' %>
-                      <%= link_to '删除', [:admin, post], method: :delete, data:{confirm: '确定删除文章吗？'} ,class: 'btn btn-sm btn-danger' %>
+                      <%= link_to '删除', [:admin, post], method: :delete, data:{confirm: '确定删除文章吗？'}, class: 'btn btn-sm btn-danger' %>
                     </td>
                   </tr>
               <% end %>
