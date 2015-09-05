@@ -28,5 +28,6 @@
     <!-- End wrapper-->
     
     <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
+    <%= yield :scripts %>
   </body>
 </html>

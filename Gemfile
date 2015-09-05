@@ -23,6 +23,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem "font-awesome-rails"
+gem "select2-rails"
 ## stars
 # gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 ## charts

@@ -4,11 +4,14 @@ Rails.application.routes.draw do
 
   get 'posts/show'
 
+  get 'posts/recommend' , to: 'posts#recommend'
+
   devise_for :users
     
   root to: 'posts#index'
 
   resources :posts, only:[:index, :show] do
+    get 'like' => 'posts#like'
     resources :comments
   end
 

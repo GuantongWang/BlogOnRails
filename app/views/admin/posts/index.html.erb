@@ -25,7 +25,7 @@
                 <td></td>
                 <td>题目</td>
                 <td>创建时间</td>
-                <td>更新时间</td>
+                <td>浏览次数</td>
                 <td>操作</td>
               </tr>
               </thead>
@@ -34,8 +34,8 @@
                   <tr>
                     <td><%= i+1 %></td>
                     <td><%= post.title %></td>
-                    <td><%= post.created_at %></td>
-                    <td><%= post.updated_at %></td>
+                    <td><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                    <td><%= post.view %></td>
                     <td>
                       <%if post.is_recommend %>
                           <%= link_to '取消推荐', admin_post_unrecommend_path(post), method: 'post', class: 'btn btn-sm btn-success'%>

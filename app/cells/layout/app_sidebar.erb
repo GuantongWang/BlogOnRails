@@ -1,0 +1,116 @@
+<!-- sidebar start -->
+<!-- ================ -->
+<aside class="col-md-4 col-lg-3 col-lg-offset-1">
+  <div class="sidebar">
+    <div class="block clearfix">
+      <h3 class="title">我的推荐</h3>
+      <div class="separator-2"></div>
+      <% @side.each do |s|%>
+      <div class="media margin-clear">
+        <div class="media-left">
+          <div class="overlay-container">
+            <img class="media-object" src="/images/blog-thumb-1.jpg" alt="blog-thumb">
+            <a href="<%= post_path(s) %>" class="overlay-link small"><i class="fa fa-link"></i></a>
+          </div>
+        </div>
+        <div class="media-body">
+          <h6 class="media-heading"><a href="<%= post_path(s) %>"><%= s.title%></a></h6>
+          <p class="small margin-clear"><i class="fa fa-calendar pr-10"></i><%= s.created_at.strftime("%d %b %Y") %></p>
+        </div>
+        <hr>
+      </div>
+      <%end%>
+      <div class="text-right space-top">
+        <a href="/posts/recommend" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>More</a>
+      </div>
+    </div>
+    <div class="block clearfix">
+      <h3 class="title">热门标签</h3>
+      <div class="separator-2"></div>
+      <div class="tags-cloud">
+        <div class="tag">
+          <a href="#">energy</a>
+        </div>
+        <div class="tag">
+          <a href="#">business</a>
+        </div>
+        <div class="tag">
+          <a href="#">food</a>
+        </div>
+        <div class="tag">
+          <a href="#">fashion</a>
+        </div>
+        <div class="tag">
+          <a href="#">finance</a>
+        </div>
+        <div class="tag">
+          <a href="#">culture</a>
+        </div>
+        <div class="tag">
+          <a href="#">health</a>
+        </div>
+        <div class="tag">
+          <a href="#">sports</a>
+        </div>
+        <div class="tag">
+          <a href="#">life style</a>
+        </div>
+        <div class="tag">
+          <a href="#">books</a>
+        </div>
+        <div class="tag">
+          <a href="#">lorem</a>
+        </div>
+        <div class="tag">
+          <a href="#">ipsum</a>
+        </div>
+        <div class="tag">
+          <a href="#">responsive</a>
+        </div>
+        <div class="tag">
+          <a href="#">style</a>
+        </div>
+        <div class="tag">
+          <a href="#">finance</a>
+        </div>
+        <div class="tag">
+          <a href="#">sports</a>
+        </div>
+        <div class="tag">
+          <a href="#">technology</a>
+        </div>
+        <div class="tag">
+          <a href="#">support</a>
+        </div>
+        <div class="tag">
+          <a href="#">life style</a>
+        </div>
+        <div class="tag">
+          <a href="#">books</a>
+        </div>
+      </div>
+    </div>
+    <div class="block clearfix">
+      <h3 class="title">Testimonial</h3>
+      <div class="separator-2"></div>
+      <blockquote class="margin-clear">
+        <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+        <footer><cite title="Source Title">Steve Jobs </cite></footer>
+      </blockquote>
+      <blockquote class="margin-clear">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolorem.</p>
+        <footer><cite title="Source Title">Steve Doe </cite></footer>
+      </blockquote>
+    </div>
+
+    <!--<div class="block clearfix">-->
+      <!--<form role="search">-->
+        <!--<div class="form-group has-feedback">-->
+          <!--<input type="text" class="form-control" placeholder="Search">-->
+          <!--<i class="fa fa-search form-control-feedback"></i>-->
+        <!--</div>-->
+      <!--</form>-->
+    <!--</div>-->
+  </div>
+</aside>
+<!-- sidebar end -->

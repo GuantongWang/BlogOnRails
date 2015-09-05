@@ -11,5 +11,7 @@
  *= require_self
  *= require font-awesome
  *= require animate/animate.css
+ *= require select2
+ *= require select2-bootstrap
  *= require style
  */
