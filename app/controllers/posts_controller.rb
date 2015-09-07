@@ -15,6 +15,6 @@ class PostsController < AppController
   def like
     @like = Post.find(params[:post_id])
     @like.update(like: @like.like + 1)
-    redirect_to post_path(@like)
+    render json: 'success'
   end
 end

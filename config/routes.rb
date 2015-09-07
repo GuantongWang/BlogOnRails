@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts, only:[:index, :show] do
-    get 'like' => 'posts#like'
+    post 'like' => 'posts#like'
     resources :comments
   end
 
