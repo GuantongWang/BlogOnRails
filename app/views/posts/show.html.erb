@@ -32,9 +32,9 @@
             <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
             <div class="link pull-right">
               <ul class="social-links circle small colored clearfix margin-clear text-right animated-effect-1">
-                <li class="twitter"><a href="javascript:void(0)" onclick="faclick()"><i id = "like" class="fa fa-heart-o"></i></a></li>
+                <li class="twitter"><a id="likelink" href="javascript:void(0)" onclick="faclick()"><i id = "like" class="fa fa-heart-o"></i></a></li>
               </ul>
-              <%= @post.get_like %>
+              <span id="likenum"><%= @post.get_like %></span>
             </div>
           </footer>
         </article>
@@ -94,9 +94,16 @@
 //                      error: function () {
 //                          alert("出错:-(");
 //                      },
-                      success: function (data) {;debugger;
-                          $("#like").removeClass("fa-heart-o")
-                          $("#like").addClass("fa-heart");
+                      success: function (data) {
+                          if(data.status) {
+                              $("#like").removeClass("fa-heart-o")
+                              $("#like").addClass("fa-heart");
+                              var like = $("#likenum").html();
+                              like = Number(like.replace(/[^0-9]/ig,"")) + 1;
+                              $("#likenum").text(like+" likes");
+                              $("#likelink").removeAttr("onclick");
+
+                          }
                       }
                   }
           );

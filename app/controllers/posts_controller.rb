@@ -15,6 +15,6 @@ class PostsController < AppController
   def like
     @like = Post.find(params[:post_id])
     @like.update(like: @like.like + 1)
-    render json: 'success'
+    render json: {status:'success'}.to_json
   end
 end
